@@ -20,7 +20,7 @@ echo
 [[ $EUID -ne 0 ]] && echo -e "[${red}Error${plain}] This script must be run as root!" && exit 1
 
 #Update
-yum -y update && yum -y updage
+yum -y update && yum -y upgrade
 
 #Install htop
 yum -y install epel-release
