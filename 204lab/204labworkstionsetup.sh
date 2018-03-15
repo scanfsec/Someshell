@@ -108,8 +108,8 @@ firewall-cmd --reload
 
 #add authorized_keys
 mkdir ~/.ssh/
+chmod 0700 ~/.ssh/
 cat<<_EOF_>>~/.ssh/authorized_keys
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCfccsQ7Lo3SwFSO5osvROm+siBhHj1qqS+QlVivfZgdNpzTLQ2IsSE2Oq/Ov12DxUkeokWXdP4/tGbno5l1l9k825bhZvSaL6NK7E2KtZjVlCyw2wvrgCJNkN5FGQJrkCv5AvesDiCR/oGrtES9kJpIx8f/KW3nXkzyV5mrGYSSwEVBlWM6Lf6FDtedjmMnKwbj94N0HxtfbFRA7QQDiPBvdwEfs7cojxEsKEUHw+NjkpVaX1+W9/x72Djdisa4MP+RVCOEbCqYqvhFwoA8T2ZhQQ5DZ52Og/cZJfx0rmOYW2H0AyxPA+DfHiK+Agn3Cnzvu2e6kapd7OM911Axa/j nginx@Workstation0.204lab.club
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6egAo9Fws/ULWy/98518SNlOkNnGbf/zwwzxSOJnOBnHKNs1NBK97tiqeyj/8GYgfVA+HDjKK2x6UGLPWZZiTwvmHAilX6Zt6AiPBrgTXIZPZW6hyDonRBi/+3P5LLTvq7QqIpWq6Ndsa8896otCRdW0g+uzD8UmIg7w0M45R/mphE/kh0VK0wqbXohtMhVmPCUcStTq21cLvLvEhR8xa5Zpe9kSAKytEAxgGwdvz0dyI0sYdMLtb8BxyGGFXj9rhNbOJas3gYJWVNRVOlRqbBpK7kxBL+/P6QVl/4AtNEGzp1prnqCHTGgeq6m8mWDh+6aXYO8/DJ6iYoD/ywYBX scanf@scanfsec.com
 _EOF_
 chmod 0600 ~/.ssh/authorized_keys
