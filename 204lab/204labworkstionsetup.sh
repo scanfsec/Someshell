@@ -1,6 +1,6 @@
 #!/bin/bash
 #by scanf
-#setup 204lab workstion cloud compute node environment.
+#setup 204lab workstation cloud compute node environment.
 #System Required:  CentOS 7
 
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
